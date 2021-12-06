@@ -7,21 +7,16 @@ timers.each do |timer|
 end
 
 256.times do |day|
-  next_instances = 0.to(8).to_h { |number| {number, 0_i64} }
-
-  0.to(8) do |state|
+  instances = 0.to(8).to_h do |state|
     case state
     when 6
-      next_instances[6] = instances[0] + # reset lanternfish
-                          instances[7]   # usual lanternfish
+      {6, instances[0] + instances[7]}
     when 8
-      next_instances[8] = instances[0]
+      {8, instances[0]}
     else
-      next_instances[state] = instances[state + 1]
+      {state, instances[state + 1]}
     end
   end
-
-  instances = next_instances
 end
 
 puts instances.values.sum
