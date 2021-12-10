@@ -33,7 +33,7 @@ basin_sizes = lowest_points.map do |x, y|
   marks_map.sum(&.count(&.itself))
 end
 basin_sizes.sort!
-three_largest_basins = basin_sizes[-3..]
+three_largest_basins = basin_sizes.last(3)
 puts three_largest_basins.product
 
 def flood(map, marks_map, x, y)
