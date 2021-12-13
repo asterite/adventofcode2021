@@ -1,8 +1,7 @@
 record FoldAlongX, x : Int32
 record FoldAlongY, y : Int32
 
-lines = File
-  .read_lines("#{__DIR__}/input.txt")
+lines = File.read_lines("#{__DIR__}/input.txt")
 empty_line_index = lines.index(&.empty?).not_nil!
 
 dots = lines[0...empty_line_index].map do |line|
