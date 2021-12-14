@@ -19,7 +19,7 @@ template.each do |char|
   char_counts[char] += 1
 end
 
-40.times do |i|
+40.times do
   pair_counts = step(pair_counts, rules, char_counts)
 end
 
